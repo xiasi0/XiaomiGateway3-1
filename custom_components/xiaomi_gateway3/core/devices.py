@@ -3153,6 +3153,15 @@ DEVICES += [{
         BaseConv("realtime_current_in", "sensor", mi="7.p.2", entity={"category": "diagnostic", "enabled": False, "class": "current", "units": "mA"}),
     ],
 }, {
+    # https://home.miot-spec.com/spec/linp.light.lp1bc
+    19653: ["Linptech", "Human Presence-Sensing Flat Panel Light", "LP1", "linp.light.lp1bc"],
+    "spec": [
+        BaseConv("light", "light", mi="2.p.1"),
+        BrightnessConv("brightness", mi="2.p.2", max=100),
+        BoolConv("occupancy", "binary_sensor", mi="5.p.1"),
+        MathConv("illuminance", "sensor", mi="5.p.5"),
+    ],
+}, {
     10813: ["Yeelink", "Curtain Motor C1", "YCCBCI008", "yeelink.curtain.crc1"],
     "spec": [
         MapConv("motor", "cover", mi="2.p.1", map={0: "stop", 1: "open", 2: "close"}),
